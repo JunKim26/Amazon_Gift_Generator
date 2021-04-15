@@ -1,6 +1,6 @@
 # Title : Life Generator
 # Author: Jun Kim
 # Date: 4/13/2021
-Description: In this program, tkinter will be used to prompt a user to choose a csv file to retrieve data from.
-Then, the user will be prompted to choose which category to filter the data through, and the number of outputs desired
-then the highest rated toys will be written into a csv file in the same directory as the script.
+Description: In this program, tkinter will be used to prompt a user to choose a category from a sample database from Amazon. 
+Then, the user will be prompted to choose the number of outputs desired.
+An output file will be created with the highest rated items in the same directory as the script. A preview of the result will pop up and display a table.
