@@ -1,4 +1,4 @@
-# Title : Life Generator
+# Title : Amazon_Item_Generator
 # Author: Jun Kim
 # Date: 4/13/2021
 Description: 
