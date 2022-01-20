@@ -1,4 +1,4 @@
-# Title : Amazon Item Generator
+# Amazon Item Generator
 
   In this program, tkinter will be used to prompt a user to choose a category from a sample database from Amazon. Then, the user will be prompted to choose the number of outputs desired. An output file will be created with the highest rated items in the same directory as the script. A preview of the result will pop up and display a table.
 
