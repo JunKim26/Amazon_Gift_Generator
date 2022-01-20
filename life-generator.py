@@ -7,13 +7,11 @@
 
 import os                                                                       # used to create relative path to write file
 import csv                                                                      # used to work with csv files
-import tkinter as tk                                                            # used as a user friendly tool for the program
-from tkinter import *
-from tkinter import StringVar
-from tkinter import ttk
 import sys
 import pandas as pd
 import numpy as np
+import tkinter as tk                                                            # used as a user friendly tool for the program
+from tkinter import *
 
 
 csv_data = pd.read_csv('amazon_co-ecommerce_sample.csv')
