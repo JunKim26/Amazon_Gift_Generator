@@ -1,4 +1,4 @@
-# Title : Amazon_Item_Generator
+# Title : Amazon Item Generator
 # Author: Jun Kim
 # Date: 4/13/2021
 Description: 
