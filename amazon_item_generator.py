@@ -5,12 +5,12 @@
 # Then, the user will be prompted to choose which category to filter the data through, and the number of outputs desired
 # then the highest rated toys will be written into a csv file in the same directory as the script.
 
-import os                                                                       # used to create relative path to write file
-import csv                                                                      # used to work with csv files
+import os                                                                       
+import csv                                                                      
 import sys
 import pandas as pd
 import numpy as np
-import tkinter as tk                                                            # used as a user friendly tool for the program
+import tkinter as tk                                                            
 from tkinter import *
 
 
@@ -32,10 +32,10 @@ if len(sys.argv) >= 2:
 
 if input_given == False:
 
-    window = tk.Tk()                                                            # creates a tkinter object
-    window.geometry('500x500')                                                  # set size of tkinter window
+    window = tk.Tk()                                                            
+    window.geometry('500x500')                                                  
 
-    label = tk.Label(text='Toy Generator')                                      # sets the text to be dipslayed by tkinter
+    label = tk.Label(text='Toy Generator')                                      
     label.pack()
 
     def category_opener():
@@ -45,11 +45,10 @@ if input_given == False:
         global category_choice
 
         category_list = csv_df['amazon_category_and_sub_category'].unique()
-
         category_choice = StringVar(window)
-        category_choice.set('Choose Category')                                  # default value shown when choosing campaign
+        category_choice.set('Choose Category')                                  
 
-        dropdown = OptionMenu(window, category_choice, *category_list)          # creates drop down in tkinter
+        dropdown = OptionMenu(window, category_choice, *category_list)          
         dropdown.pack()
 
 
@@ -75,9 +74,9 @@ if input_given == False:
          91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
 
         num_choice = IntVar(window)
-        num_choice.set('Choose Number')                                         # default value shown when choosing campaign
+        num_choice.set('Choose Number')                                         
 
-        dropdown = OptionMenu(window, num_choice, *num_list)                    # creates drop down in tkinter
+        dropdown = OptionMenu(window, num_choice, *num_list)                   
         dropdown.pack()
 
         end_button = Button(window, text='Create Output', command=window.destroy).pack()
@@ -94,11 +93,11 @@ if input_given == True:
     global input_csv_df
     global category_choice
     global num_choice
-
-    #input_csv_data = pd.read_csv(sys.argv[1])                                  # use this to run program by passing an argument
+    
+    #uncomment below line to use this to run program by passing an argument
+    #input_csv_data = pd.read_csv(sys.argv[1])                                  
 
     input_csv_data = pd.read_csv('input.csv')
-
     input_csv_df = pd.DataFrame(input_csv_data)
 
     category_choice = input_csv_df['input_item_category'].iloc[0]
@@ -106,10 +105,10 @@ if input_given == True:
 
 
 fieldnames_list = ['input_item_type','input_item_category','input_number_to_generate','output_item_name',
-'output_item_rating','output_item_num_reviews',]                                # column names
+'output_item_rating','output_item_num_reviews',]                                
 
 
-with open("output.csv", 'w') as new_file:                                       # creates csv to write in
+with open("output.csv", 'w') as new_file:                                       
 
     if input_given == False:
 
@@ -162,7 +161,7 @@ def displayontowindow():
 
     frame = ttk.Frame(root, width=300, height=250)
 
-                                                                                # Canvas creation with double scrollbar
+    # Canvas creation with double scrollbar
     hscrollbar = ttk.Scrollbar(frame, orient=tk.HORIZONTAL)
     vscrollbar = ttk.Scrollbar(frame, orient=tk.VERTICAL)
     sizegrip = ttk.Sizegrip(frame)
@@ -171,26 +170,26 @@ def displayontowindow():
     vscrollbar.config(command=canvas.yview)
     hscrollbar.config(command=canvas.xview)
 
-                                                                                # Add controls here
+    # Add controls here
     subframe = ttk.Frame(canvas)
 
-                                                                                # open file
+                                                                               
     with open("output.csv", newline="") as file:
         reader = csv.reader(file)
 
-                                                                                # r and c tell us where to grid the labels
+        # r and c tell us where to grid the labels
         r = 0
         for col in reader:
             c = 0
             for row in col:
-                                                                                # added some styling
+                # added some styling
                 label = tk.Label(subframe, width=30, height=2,
                                       text=row, relief=tk.RIDGE)
                 label.grid(row=r, column=c)
                 c += 1
             r += 1
 
-                                                                                # Packing everything
+    # Packing everything
     subframe.pack(fill=tk.BOTH, expand=tk.TRUE)
     hscrollbar.pack(fill=tk.X, side=tk.BOTTOM, expand=tk.FALSE)
     vscrollbar.pack(fill=tk.Y, side=tk.RIGHT, expand=tk.FALSE)
@@ -199,7 +198,9 @@ def displayontowindow():
     frame.pack(padx=5, pady=5, expand=True, fill=tk.BOTH)
 
     canvas.create_window(0, 0, window=subframe)
-    root.update_idletasks()                                                     # update geometry
+    root.update_idletasks()                   
+    
+    # update geometry
     canvas.config(scrollregion=canvas.bbox("all"))
     canvas.xview_moveto(0)
     canvas.yview_moveto(0)
